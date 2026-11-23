@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gabriel | Roblox Developer</title>
+<meta name="description" content="Roblox developer portfolio: scripting, systems, UI, VFX, building and UGC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e1117;--card:#161b24;--ink:#eef1f6;--soft:#9aa3b2;--line:#252c38;--accent:#5fb3ff;--accent2:#ffb648}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{padding:72px 0 36px}
+.tag{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(38px,7vw,64px);line-height:1.05;margin:10px 0 16px}
+.lead{font-size:clamp(17px,2.3vw,20px);color:var(--soft);max-width:680px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{border:1px solid var(--line);background:var(--card);padding:6px 13px;border-radius:999px;font-size:14px;color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid var(--accent);color:var(--accent)}
+.btn.main{background:var(--accent);color:#06121f}
+section{padding:40px 0;border-top:1px solid var(--line)}
+h2{font-family:"Space Grotesk",sans-serif;font-size:30px;line-height:1.15}
+.sub{color:var(--accent2);font-weight:600;font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.desc{color:var(--soft);max-width:760px;margin:12px 0 18px}
+ul.built{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px;margin-bottom:22px;max-width:860px}
+ul.built li{padding-left:18px;position:relative;font-size:15px}
+ul.built li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery figure{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;cursor:zoom-in}
+.gallery figcaption{padding:10px 12px;font-size:13.5px;color:var(--soft)}
+.gallery.icons img{aspect-ratio:1/1;object-fit:contain;background:#0b0e13;padding:14px}
+.wide{grid-column:span 2}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{font-size:17px;margin-bottom:6px}
+.card p{color:var(--soft);font-size:15px}
+footer{padding:40px 0 70px;border-top:1px solid var(--line)}
+#lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;padding:20px;z-index:9}
+#lb img{max-width:100%;max-height:100%;border-radius:8px}
+@media (max-width:760px){.gallery,.svc{grid-template-columns:1fr}.wide{grid-column:auto}ul.built{grid-template-columns:1fr}header{padding:48px 0 28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="tag">Roblox Developer · Scripter · Builder</div>
+  <h1>Gabriel</h1>
+  <p class="lead">I build complete Roblox games end to end: combat and game systems in Luau, UI, VFX, maps and UGC accessories. Fast delivery, clean code and everything tested in Play before it ships.</p>
+  <div class="chips">
+    <span class="chip">Luau scripting</span><span class="chip">Combat systems</span><span class="chip">DataStores</span><span class="chip">UI / HUD</span><span class="chip">VFX</span><span class="chip">Terrain &amp; maps</span><span class="chip">Blender</span><span class="chip">UGC fitting</span><span class="chip">Monetization</span><span class="chip">Mobile &amp; gamepad</span>
+  </div>
+  <div class="btns">
+    <a class="btn main" href="#contact">Hire me</a>
+    <a class="btn" href="#yggdrasil">See my work</a>
+  </div>
+</header>
+
+<section id="yggdrasil">
+  <div class="sub">Original game · Isometric action roguelite</div>
+  <h2>Yggdrasil</h2>
+  <p class="desc">A Norse action roguelite with a complete run loop: title screen, hub, procedurally assembled rooms, a frost-giant boss, then victory or death and back to the hub. (Interface shown in Portuguese.)</p>
+  <ul class="built">
+    <li>Combat: several weapons with light and special attacks, dodge, elites and enemy waves</li>
+    <li>God-blessing system with rune upgrades, rarity tiers and dual blessings</li>
+    <li>Frost-giant boss fight with a custom boss health bar</li>
+    <li>Meta-progression between runs (unlockable sacred weapons)</li>
+    <li>Custom HUD, menus and cinematic intro, boss, death and victory scenes</li>
+    <li>Mobile and gamepad controls</li>
+  </ul>
+  <div class="gallery">
+    <figure><img src="rbx-ygg-7.jpg" alt="Boss fight against a frost giant" loading="lazy"><figcaption>Boss fight against the frost giant, with boss health bar</figcaption></figure>
+    <figure><img src="rbx-ygg-4.jpg" alt="God power activation" loading="lazy"><figcaption>God-power activation slicing across an ice room</figcaption></figure>
+    <figure><img src="rbx-ygg-5.jpg" alt="Spear spin attack" loading="lazy"><figcaption>Spear spin attack with radial VFX</figcaption></figure>
+    <figure><img src="rbx-ygg-6.jpg" alt="Hammer leap slam" loading="lazy"><figcaption>Hammer leap slam cracking the ground</figcaption></figure>
+    <figure><img src="rbx-ygg-8.jpg" alt="Blessing selection cards" loading="lazy"><figcaption>Blessing choice: rune cards with rarity tiers</figcaption></figure>
+    <figure><img src="rbx-ygg-1.jpg" alt="Norse longhouse hub" loading="lazy"><figcaption>Hub longhouse with interactive stations</figcaption></figure>
+    <figure><img src="rbx-ygg-2.jpg" alt="Courtyard arena" loading="lazy"><figcaption>Courtyard arena with runic stone circle</figcaption></figure>
+    <figure><img src="rbx-ygg-3.jpg" alt="Frozen lake room" loading="lazy"><figcaption>Frozen lake room with fountain portal and hazards</figcaption></figure>
+    <figure><img src="rbx-ygg-9.jpg" alt="Weapon selection menu" loading="lazy"><figcaption>Meta-progression weapon menu</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <div class="sub">Original game · Co-op strategy simulation</div>
+  <h2>Stop the Lava!</h2>
+  <p class="desc">Players dig channels and raise walls on deformable terrain to steer an erupting volcano's lava away from a village.</p>
+  <ul class="built">
+    <li>Height-map terrain written to Roblox Terrain voxels in real time</li>
+    <li>Grid-based lava flow simulation</li>
+    <li>Wave logic, new islands every few waves, boss eruptions and villagers</li>
+    <li>Tools and upgrades: shovel, bomb, water hose, stone wall, talents and rebirth</li>
+    <li>DataStore save system, daily quests, achievements</li>
+    <li>Game-pass and developer-product shop with custom icons</li>
+  </ul>
+  <div class="gallery icons">
+    <figure><img src="rbx-lava-1.jpg" alt="VIP game pass icon" loading="lazy"><figcaption>VIP game pass icon</figcaption></figure>
+    <figure><img src="rbx-lava-2.jpg" alt="Coin Eruption product icon" loading="lazy"><figcaption>"Coin Eruption" developer product</figcaption></figure>
+    <figure><img src="rbx-lava-3.jpg" alt="Save the Village product icon" loading="lazy"><figcaption>"Save the Village" developer product</figcaption></figure>
+  </div>
+</section>
+
+<section>
+  <div class="sub">More experience</div>
+  <h2>Simulator revamp &amp; UGC accessories</h2>
+  <div class="svc">
+    <div class="card"><h3>Anime simulator revamp</h3><p>Clicker simulator with six worlds, pet eggs with rarity odds and pity, rebirth, fusion, daily rewards, quests and badges. I rebuilt the egg-hatch reveal, networked transformation VFX and the whole onboarding (tips, tutorial, quest arrow).</p></div>
+    <div class="card"><h3>UGC accessories</h3><p>Hats, face, shoulder, back and waist items published to the Marketplace. Attachment placement and scaling, checks against the Classic/Normal/Slender size limits, R6/R15 clipping tests and texture budgets.</p></div>
+    <div class="card"><h3>What I can do for you</h3><p>Scripted systems (shops, inventories, DataStores, combat), UI implementation, bug fixes, maps and props, UGC items. Fixed price per task, paid per milestone.</p></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>Let's work together</h2>
+  <p class="desc">Send me your task and I'll reply with a fixed price and a delivery date. Available now.</p>
+  <div class="btns"><span class="btn main">Discord: uDark</span><a class="btn" href="https://github.com/uProdigy" target="_blank" rel="noopener">GitHub</a></div>
+</footer>
+</div>
+<div id="lb" onclick="this.style.display='none'"><img alt=""></div>
+<script>
+document.querySelectorAll('.gallery:not(.icons) img').forEach(i=>i.addEventListener('click',()=>{const lb=document.getElementById('lb');lb.querySelector('img').src=i.src;lb.style.display='flex'}));
+</script>
+</body>
+</html>
