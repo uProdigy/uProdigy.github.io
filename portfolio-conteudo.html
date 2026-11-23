@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marina Duarte | Conteúdo e SEO</title>
+<meta name="description" content="Modelo de portfólio editável para analista de conteúdo e SEO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+/* =====================================================================
+   EDITE AQUI. Todo o texto do portfólio está neste bloco.
+   Troque o que está entre aspas, salve e abra o arquivo de novo.
+   Para tirar um item, apague a linha inteira dele (com a vírgula).
+   ===================================================================== */
+const DADOS = {
+  nome: "Marina Duarte",
+  cargo: "Analista de Conteúdo e SEO",
+  resumo: "Ajudo marcas a serem encontradas no Google e a transformar visitas em contatos, com conteúdo planejado a partir de dados de busca.",
+  cidade: "São Paulo, SP · remoto",
+  linkedin: "https://www.linkedin.com/",
+  email: "contato@exemplo.com",
+  numeros: [
+    ["+180%", "tráfego orgânico em 8 meses"],
+    ["120+", "artigos publicados"],
+    ["40", "palavras-chave no top 3"]
+  ],
+  servicos: [
+    ["Estratégia de conteúdo", "Pesquisa de palavras-chave, mapa de temas e calendário editorial ligados aos objetivos do negócio."],
+    ["SEO on-page", "Títulos, descrições, estrutura de páginas, links internos e otimização de artigos já publicados."],
+    ["Redação para web", "Artigos, páginas de serviço e newsletters com linguagem clara e foco em conversão."]
+  ],
+  habilidades: ["Google Search Console", "Google Analytics 4", "SEMrush", "Ahrefs", "WordPress", "Copywriting", "Pesquisa de palavras-chave", "Calendário editorial", "Looker Studio"],
+  cases: [
+    ["E-commerce de cosméticos", "Reestruturei o blog em grupos de temas e reescrevi 35 artigos antigos.", "+180% de tráfego orgânico e 2,3x mais vendas vindas do blog em 8 meses."],
+    ["Clínica odontológica", "Criei páginas de serviço por tratamento e por bairro, com perguntas frequentes.", "De 12 para 41 pedidos de agendamento por mês pelo site."],
+    ["SaaS de gestão financeira", "Planejei e escrevi uma série de guias para pequenas empresas.", "6 guias na primeira página do Google e 900 cadastros na newsletter."]
+  ]
+};
+</script>
+<style>
+:root{--bg:#f7f4ef;--card:#fffdf9;--ink:#1d1b18;--soft:#5d5850;--line:#e4ddd2;--accent:#2f5d50;--accent-soft:#e3ece8}
+@media (prefers-color-scheme:dark){:root{--bg:#141614;--card:#1c1f1c;--ink:#efece6;--soft:#a9a49a;--line:#2e322e;--accent:#8cc5b1;--accent-soft:#1f2b27}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{padding:72px 0 40px}
+.tag{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:Fraunces,Georgia,serif;font-size:clamp(40px,7vw,68px);line-height:1.05;margin:10px 0 18px}
+.resumo{font-size:clamp(18px,2.4vw,21px);color:var(--soft);max-width:640px}
+.meta{margin-top:18px;color:var(--soft);font-size:14px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--accent);color:var(--accent);cursor:pointer;background:none;font-family:inherit}
+.btn.main{background:var(--accent);color:var(--bg)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0 56px}
+.num{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.num b{display:block;font-family:Fraunces,Georgia,serif;font-size:34px;color:var(--accent);line-height:1.1}
+.num span{font-size:14px;color:var(--soft)}
+section{padding:8px 0 48px}
+h2{font-family:Fraunces,Georgia,serif;font-size:30px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{font-size:17px;margin-bottom:6px}
+.card p{color:var(--soft);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--accent-soft);color:var(--accent);padding:7px 14px;border-radius:999px;font-size:14px;font-weight:500}
+.case{display:grid;grid-template-columns:1fr 1.4fr;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:12px}
+.case h3{font-family:Fraunces,Georgia,serif;font-size:21px}
+.case .res{margin-top:8px;font-weight:600;color:var(--accent)}
+.case p{color:var(--soft)}
+footer{border-top:1px solid var(--line);padding:36px 0 60px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer h2{margin:0}
+@media (max-width:720px){.grid,.nums{grid-template-columns:1fr}.case{grid-template-columns:1fr;gap:6px}header{padding:48px 0 28px}}
+@media print{
+  :root{--bg:#fff;--card:#fff;--ink:#111;--soft:#444;--line:#ccc;--accent:#2f5d50;--accent-soft:#eef3f1}
+  .no-print{display:none!important}
+  header{padding:0 0 20px}section{padding:0 0 22px;break-inside:avoid}.case,.card,.num{break-inside:avoid}
+  body{font-size:13px}h1{font-size:40px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="tag" id="cargo"></span>
+    <h1 id="nome"></h1>
+    <p class="resumo" id="resumo"></p>
+    <p class="meta" id="cidade"></p>
+    <div class="btns no-print">
+      <a class="btn main" id="lnk-linkedin" target="_blank" rel="noopener">Ver no LinkedIn</a>
+      <a class="btn" id="lnk-email">Enviar e-mail</a>
+      <button class="btn" onclick="window.print()">Baixar em PDF</button>
+    </div>
+  </header>
+
+  <div class="nums" id="numeros"></div>
+
+  <section><h2>O que eu faço</h2><div class="grid" id="servicos"></div></section>
+  <section><h2>Ferramentas e habilidades</h2><div class="chips" id="habilidades"></div></section>
+  <section><h2>Cases</h2><div id="cases"></div></section>
+
+  <footer>
+    <h2>Vamos conversar?</h2>
+    <div class="btns" style="margin:0">
+      <a class="btn main" id="lnk-email2">Enviar e-mail</a>
+      <a class="btn" id="lnk-linkedin2" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+document.title = DADOS.nome + " | " + DADOS.cargo;
+$("nome").textContent = DADOS.nome;
+$("cargo").textContent = DADOS.cargo;
+$("resumo").textContent = DADOS.resumo;
+$("cidade").textContent = DADOS.cidade;
+["lnk-linkedin","lnk-linkedin2"].forEach(i => $(i).href = DADOS.linkedin);
+["lnk-email","lnk-email2"].forEach(i => $(i).href = "mailto:" + DADOS.email);
+$("numeros").innerHTML = DADOS.numeros.map(([n,t]) => `<div class="num"><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("");
+$("servicos").innerHTML = DADOS.servicos.map(([t,d]) => `<div class="card"><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join("");
+$("habilidades").innerHTML = DADOS.habilidades.map(h => `<span class="chip">${esc(h)}</span>`).join("");
+$("cases").innerHTML = DADOS.cases.map(([t,d,r]) => `<div class="case"><h3>${esc(t)}</h3><div><p>${esc(d)}</p><p class="res">${esc(r)}</p></div></div>`).join("");
+</script>
+</body>
+</html>
