@@ -45,6 +45,10 @@ ul.built li:before{content:"";position:absolute;left:0;top:.62em;width:7px;heigh
 .card h3{font-size:18px;margin:4px 0 8px}
 .card p{color:var(--soft);font-size:15px}
 .card ul{margin:10px 0 0;padding-left:18px;color:var(--soft);font-size:14.5px}
+.ugcs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+.ugc{background:radial-gradient(circle at 50% 40%,#232b3a,#141922);border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;color:var(--soft);font-size:13.5px;text-align:center;transition:border-color .2s}
+.ugc:hover{border-color:var(--accent)}
+.ugc img{width:100%;aspect-ratio:1;object-fit:contain;display:block;margin-bottom:8px}
 .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
 .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
 .step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--accent);color:#06121f;font-weight:700;margin-bottom:8px}
@@ -52,7 +56,7 @@ ul.built li:before{content:"";position:absolute;left:0;top:.62em;width:7px;heigh
 footer{padding:44px 0 70px;border-top:1px solid var(--line)}
 #lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;padding:20px;z-index:9}
 #lb img{max-width:100%;max-height:100%;border-radius:8px}
-@media (max-width:860px){.facts,.steps,.gallery{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.facts,.steps,.gallery,.ugcs{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:760px){.gallery,.cards{grid-template-columns:1fr}ul.built{grid-template-columns:1fr}header{padding:48px 0 28px}}
 </style>
 </head>
@@ -115,6 +119,22 @@ footer{padding:44px 0 70px;border-top:1px solid var(--line)}
   </div>
 </section>
 
+<section id="ugc">
+  <div class="sub">Published on the Marketplace</div>
+  <h2>UGC accessories</h2>
+  <p class="desc">A selection of the most-favorited items I modeled, fitted and published under my group's store. Click any item to see it on Roblox.</p>
+  <div class="ugcs">
+    <a class="ugc" href="https://www.roblox.com/catalog/135209200345716" target="_blank" rel="noopener"><img src="rbx-ugc-1.png" alt="Liebe Black Clover" loading="lazy"><span>Liebe Black Clover</span></a>
+    <a class="ugc" href="https://www.roblox.com/catalog/124017592141446" target="_blank" rel="noopener"><img src="rbx-ugc-2.png" alt="Hedwig Harry Potter Owl" loading="lazy"><span>Hedwig Harry Potter Owl</span></a>
+    <a class="ugc" href="https://www.roblox.com/catalog/86919943878760" target="_blank" rel="noopener"><img src="rbx-ugc-3.png" alt="Moondrop Animatronic Plushie" loading="lazy"><span>Moondrop Animatronic Plushie</span></a>
+    <a class="ugc" href="https://www.roblox.com/catalog/108945781350535" target="_blank" rel="noopener"><img src="rbx-ugc-4.png" alt="Coraline Doll" loading="lazy"><span>Coraline Doll</span></a>
+    <a class="ugc" href="https://www.roblox.com/catalog/75512471282642" target="_blank" rel="noopener"><img src="rbx-ugc-5.png" alt="Billy Jigsaw SAW Plushie" loading="lazy"><span>Billy Jigsaw SAW Plushie</span></a>
+    <a class="ugc" href="https://www.roblox.com/catalog/90698636000075" target="_blank" rel="noopener"><img src="rbx-ugc-6.png" alt="Spider Cat Backpack" loading="lazy"><span>Spider Cat Backpack</span></a>
+    <a class="ugc" href="https://www.roblox.com/catalog/119184775526125" target="_blank" rel="noopener"><img src="rbx-ugc-7.png" alt="Dr Doom Steel Mask" loading="lazy"><span>Dr Doom Steel Mask</span></a>
+    <a class="ugc" href="https://www.roblox.com/catalog/92495663701769" target="_blank" rel="noopener"><img src="rbx-ugc-8.png" alt="Chica FNAF Plushie" loading="lazy"><span>Chica FNAF Plushie</span></a>
+  </div>
+</section>
+
 <section>
   <div class="sub">How I work</div>
   <h2>Simple and paid per milestone</h2>
@@ -129,7 +149,7 @@ footer{padding:44px 0 70px;border-top:1px solid var(--line)}
 <footer id="contact">
   <h2>Let's work together</h2>
   <p class="desc">Scripted systems (shops, inventories, DataStores, combat), UI implementation, bug fixes, maps and props, UGC items. Send me your task and I'll reply with a fixed price and a delivery date.</p>
-  <div class="btns"><span class="btn main">Discord: uDark</span><a class="btn" href="https://github.com/uProdigy" target="_blank" rel="noopener">GitHub</a></div>
+  <div class="btns"><span class="btn main">Discord: uDarkdev_</span><a class="btn" href="https://github.com/uProdigy" target="_blank" rel="noopener">GitHub</a></div>
 </footer>
 </div>
 <div id="lb" onclick="this.style.display='none'"><img alt=""></div>
