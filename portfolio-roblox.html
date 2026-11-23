@@ -32,7 +32,9 @@ h2{font-family:"Space Grotesk",sans-serif;font-size:30px;line-height:1.15}
 ul.built{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px;margin-bottom:24px;max-width:880px}
 ul.built li{padding-left:18px;position:relative;font-size:15px}
 ul.built li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent)}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.icons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.icons img{width:100%;border-radius:10px;display:block}
 .gallery figure{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;cursor:zoom-in;transition:transform .25s}
 .gallery figure:hover img{transform:scale(1.03)}
@@ -50,7 +52,7 @@ ul.built li:before{content:"";position:absolute;left:0;top:.62em;width:7px;heigh
 footer{padding:44px 0 70px;border-top:1px solid var(--line)}
 #lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;padding:20px;z-index:9}
 #lb img{max-width:100%;max-height:100%;border-radius:8px}
-@media (max-width:860px){.facts,.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.facts,.steps,.gallery{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:760px){.gallery,.cards{grid-template-columns:1fr}ul.built{grid-template-columns:1fr}header{padding:48px 0 28px}}
 </style>
 </head>
@@ -90,7 +92,9 @@ footer{padding:44px 0 70px;border-top:1px solid var(--line)}
   <div class="gallery">
     <figure><img src="rbx-ygg-7.jpg" alt="Boss fight against a frost giant" loading="lazy"><figcaption>Boss fight with custom boss health bar</figcaption></figure>
     <figure><img src="rbx-ygg-5.jpg" alt="Spear spin attack" loading="lazy"><figcaption>Spear spin attack with radial VFX</figcaption></figure>
+    <figure><img src="rbx-ygg-8.jpg" alt="Blessing selection cards" loading="lazy"><figcaption>Blessing choice UI: rune cards with rarity tiers</figcaption></figure>
     <figure><img src="rbx-ygg-6.jpg" alt="Hammer leap slam" loading="lazy"><figcaption>Hammer leap slam cracking the ground</figcaption></figure>
+    <figure><img src="rbx-ygg-4.jpg" alt="God power activation" loading="lazy"><figcaption>God-power activation slicing across a room</figcaption></figure>
     <figure><img src="rbx-ygg-1.jpg" alt="Norse longhouse hub" loading="lazy"><figcaption>Hub longhouse with interactive stations</figcaption></figure>
     <figure><img src="rbx-ygg-2.jpg" alt="Courtyard arena" loading="lazy"><figcaption>Courtyard arena with runic stone circle</figcaption></figure>
     <figure><img src="rbx-ygg-3.jpg" alt="Frozen lake room" loading="lazy"><figcaption>Frozen lake room with portal and ice hazards</figcaption></figure>
@@ -102,7 +106,8 @@ footer{padding:44px 0 70px;border-top:1px solid var(--line)}
   <h2>Systems, simulators &amp; UGC</h2>
   <div class="cards">
     <div class="card"><div class="k">Original game · Co-op strategy</div><h3>Stop the Lava!</h3><p>Dig channels and raise walls on deformable terrain to steer an erupting volcano's lava away from a village.</p>
-      <ul><li>Height-map terrain written to Terrain voxels in real time</li><li>Grid-based lava flow simulation</li><li>Waves, new islands, tools, talents and rebirth</li><li>DataStore saves, quests and a game-pass shop</li></ul></div>
+      <ul><li>Height-map terrain written to Terrain voxels in real time</li><li>Grid-based lava flow simulation</li><li>Waves, new islands, tools, talents and rebirth</li><li>DataStore saves, quests and a game-pass shop</li></ul>
+      <div class="icons"><img src="rbx-lava-1.jpg" alt="VIP pass icon" loading="lazy"><img src="rbx-lava-2.jpg" alt="Coin Eruption icon" loading="lazy"><img src="rbx-lava-3.jpg" alt="Save the Village icon" loading="lazy"></div></div>
     <div class="card"><div class="k">Revamp</div><h3>Anime clicker simulator</h3><p>Six worlds, pet eggs with rarity odds and pity, rebirth, fusion, daily rewards, quests and badges.</p>
       <ul><li>Rebuilt the egg-hatch reveal by rarity</li><li>Networked transformation VFX</li><li>New onboarding: tips, tutorial, quest arrow</li><li>Redesigned reward panels</li></ul></div>
     <div class="card"><div class="k">Marketplace</div><h3>UGC accessories</h3><p>Hat, face, shoulder, back and waist items published under a Roblox group.</p>
