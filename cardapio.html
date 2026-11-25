@@ -110,6 +110,13 @@ footer a{color:inherit}
 .send svg{width:22px;height:22px}
 .hint{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
 .err{color:#c0392b;font-size:13px;margin-top:8px;display:none}
+/* Modo amostra: faixa, marca d'água e pedido só em prévia */
+.faixa-amostra{background:#111;color:#ffd43b;text-align:center;font-size:12px;font-weight:800;letter-spacing:.12em;padding:7px 10px}
+.marca-amostra{position:fixed;inset:-50%;z-index:35;pointer-events:none;display:flex;flex-wrap:wrap;gap:70px 90px;align-content:center;justify-content:center;transform:rotate(-28deg);opacity:.07;user-select:none}
+.marca-amostra span{font-size:44px;font-weight:900;color:#000;letter-spacing:.1em}
+.previa{margin-top:14px;background:var(--bg);border:1px dashed var(--brand);border-radius:14px;padding:12px;font-size:13px}
+.previa pre{white-space:pre-wrap;font-family:inherit;margin:8px 0;background:#dcf8c6;color:#111;border-radius:10px;padding:10px}
+.previa span{color:var(--muted);font-size:12px}
 @media (min-width:640px){.thumb{width:110px;height:110px}.hero h1{font-size:28px}}
 </style>
 </head>
@@ -180,6 +187,7 @@ footer a{color:inherit}
 <script>
 /*DADOS-START*/
 const LOJA = {
+  amostra: true, // amostra: faixa e marca d'água, e o pedido só aparece na tela (não abre WhatsApp)
   nome: "Brasa & Massa",
   slogan: "Hambúrguer artesanal e pizza no forno a lenha",
   iniciais: "B&M",
@@ -245,9 +253,9 @@ function topo() {
   $("#logo").innerHTML = LOJA.logo ? `<img src="${LOJA.logo}" alt="">` : LOJA.iniciais;
   const aberto = abertoAgora();
   $("#badges").innerHTML =
-    `<span class="badge ${aberto ? "open" : ""}"><span class="dot"></span>${aberto ? "Aberto agora" : "Fechado agora"}</span>` +
+    (LOJA.mostrarStatus === false ? "" : `<span class="badge ${aberto ? "open" : ""}"><span class="dot"></span>${aberto ? "Aberto agora" : "Fechado agora"}</span>`) +
     `<span class="badge">🛵 ${LOJA.tempo}</span>` +
-    `<span class="badge">Entrega ${LOJA.taxaEntrega ? brl(LOJA.taxaEntrega) : "grátis"}</span>`;
+    `<span class="badge">${LOJA.taxaEntrega == null ? "Entrega e retirada" : "Entrega " + (LOJA.taxaEntrega ? brl(LOJA.taxaEntrega) : "grátis")}</span>`;
   $("#rodape").innerHTML = `${LOJA.nome} · ${LOJA.cidade}` +
     (LOJA.instagram ? ` · <a href="https://instagram.com/${LOJA.instagram}" target="_blank" rel="noopener">@${LOJA.instagram}</a>` : "") +
     (LOJA.pedidoMinimo ? `<br>Pedido mínimo para entrega: ${brl(LOJA.pedidoMinimo)}` : "");
@@ -322,8 +330,8 @@ function desenharPedido() {
   }).join("");
   const t = totais();
   $("#totais").innerHTML = `<div><span>Subtotal</span><span>${brl(t.sub)}</span></div>` +
-    (tipo === "entrega" ? `<div><span>Entrega</span><span>${t.entrega ? brl(t.entrega) : "Grátis"}</span></div>` : "") +
-    `<div class="big"><span>Total</span><span>${brl(t.total)}</span></div>`;
+    (tipo === "entrega" ? `<div><span>Entrega</span><span>${LOJA.taxaEntrega == null ? "a combinar" : (t.entrega ? brl(t.entrega) : "Grátis")}</span></div>` : "") +
+    `<div class="big"><span>Total${tipo === "entrega" && LOJA.taxaEntrega == null ? " + entrega" : ""}</span><span>${brl(t.total)}</span></div>`;
   $("#campoEnd").style.display = tipo === "entrega" ? "" : "none";
   $("#campoTroco").style.display = pag === "Dinheiro" ? "" : "none";
 }
@@ -347,14 +355,38 @@ function enviar() {
     `*Novo pedido — ${LOJA.nome}*`, "",
     ...linhas, "",
     `Subtotal: ${brl(t.sub)}`,
-    tipo === "entrega" ? `Entrega: ${t.entrega ? brl(t.entrega) : "grátis"}` : null,
+    tipo === "entrega" ? `Entrega: ${LOJA.taxaEntrega == null ? "taxa a combinar" : (t.entrega ? brl(t.entrega) : "grátis")}` : null,
     `*Total: ${brl(t.total)}*`, "",
     `Nome: ${nome}`,
     tipo === "entrega" ? `Entrega em: ${end}` : "Vou retirar no local",
     `Pagamento: ${pag}${pag === "Dinheiro" && troco ? ` (troco para R$ ${troco})` : ""}`,
     obs ? `Obs.: ${obs}` : null
   ].filter(l => l !== null).join("\n");
+  if (LOJA.amostra) {
+    // Amostra: não abre WhatsApp nenhum, só mostra como o pedido chegaria.
+    $("#erro").style.display = "none";
+    const box = document.getElementById("previaPedido") || Object.assign(document.createElement("div"), { id: "previaPedido", className: "previa" });
+    box.innerHTML = `<b>Assim o pedido chega no WhatsApp de vocês:</b><pre></pre><span>Esta é uma amostra. Na versão contratada, o botão abre o WhatsApp da loja com o pedido pronto.</span>`;
+    box.querySelector("pre").textContent = msg.replace(/\*/g, "");
+    $("#enviar").after(box);
+    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    return;
+  }
   window.open(`https://wa.me/${LOJA.whatsapp || ""}?text=${encodeURIComponent(msg)}`, "_blank");
+}
+
+function marcarAmostra() {
+  if (!LOJA.amostra) return;
+  document.body.classList.add("amostra");
+  const faixa = document.createElement("div");
+  faixa.className = "faixa-amostra";
+  faixa.textContent = "AMOSTRA · versão de demonstração";
+  document.body.prepend(faixa);
+  const marca = document.createElement("div");
+  marca.className = "marca-amostra";
+  marca.setAttribute("aria-hidden", "true");
+  marca.innerHTML = Array(40).fill("<span>AMOSTRA</span>").join("");
+  document.body.append(marca);
 }
 
 function observar() {
@@ -391,6 +423,7 @@ $("#tipo").addEventListener("click", e => { const b = e.target.closest("button")
 $("#pag").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; pag = b.dataset.v; $("#pag").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); desenharPedido(); });
 $("#enviar").addEventListener("click", enviar);
 
+marcarAmostra();
 topo();
 render();
 atualizarBarra();
