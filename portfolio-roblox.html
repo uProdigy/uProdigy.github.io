@@ -56,8 +56,10 @@ ul.built li:before{content:"";position:absolute;left:0;top:.62em;width:7px;heigh
 footer{padding:44px 0 70px;border-top:1px solid var(--line)}
 #lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;padding:20px;z-index:9}
 #lb img{max-width:100%;max-height:100%;border-radius:8px}
-@media (max-width:860px){.facts,.steps,.gallery,.ugcs{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:760px){.gallery,.cards{grid-template-columns:1fr}ul.built{grid-template-columns:1fr}header{padding:48px 0 28px}}
+.gallery.g3{grid-template-columns:repeat(3,1fr)}
+.gallery.g3 img{aspect-ratio:6/5}
+@media (max-width:860px){.facts,.steps,.gallery,.gallery.g3,.ugcs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){.gallery,.gallery.g3,.cards{grid-template-columns:1fr}ul.built{grid-template-columns:1fr}header{padding:48px 0 28px}}
 </style>
 </head>
 <body>
@@ -102,6 +104,28 @@ footer{padding:44px 0 70px;border-top:1px solid var(--line)}
     <figure><img src="rbx-ygg-1.jpg" alt="Norse longhouse hub" loading="lazy"><figcaption>Hub longhouse with interactive stations</figcaption></figure>
     <figure><img src="rbx-ygg-2.jpg" alt="Courtyard arena" loading="lazy"><figcaption>Courtyard arena with runic stone circle</figcaption></figure>
     <figure><img src="rbx-ygg-3.jpg" alt="Frozen lake room" loading="lazy"><figcaption>Frozen lake room with portal and ice hazards</figcaption></figure>
+  </div>
+</section>
+
+<section id="map">
+  <div class="sub">Map building · Pet Simulator style</div>
+  <h2>Crystal Meadow zone</h2>
+  <p class="desc">A sample simulator zone I built as a layout reference: a closed meadow ringed by two-tier cliffs, a curved path from the entrance to a locked Zone 2 gate, open fields for breakables and an egg station you can see from the entrance.</p>
+  <ul class="built">
+    <li>170 × 230 stud playable area, entrance courtyard and exit corridor</li>
+    <li>26 breakables in 6 fields, kept clear of the path and the water</li>
+    <li>Egg station on a raised platform with stairs, lanterns and price label</li>
+    <li>Locked Zone 2 gate with barrier and unlock price, ready for a purchase script</li>
+    <li>70 reused meshes, no unions, free assets scanned for backdoors</li>
+    <li>Scripted placement check: nothing floating, buried, overlapping or on the path</li>
+  </ul>
+  <div class="gallery g3">
+    <figure><img src="rbx-map-1.jpg" alt="Aerial view of the Crystal Meadow zone" loading="lazy"><figcaption>Full zone, entrance at the bottom, Zone 2 gate at the top</figcaption></figure>
+    <figure><img src="rbx-map-2.jpg" alt="View from the entrance gate down the curved path" loading="lazy"><figcaption>Entrance: path, egg and crystal landmark in one view</figcaption></figure>
+    <figure><img src="rbx-map-3.jpg" alt="Wooden bridge over the stream" loading="lazy"><figcaption>Stream and bridge splitting the zone in two halves</figcaption></figure>
+    <figure><img src="rbx-map-4.jpg" alt="Egg on a raised platform" loading="lazy"><figcaption>Egg station on a raised platform</figcaption></figure>
+    <figure><img src="rbx-map-5.jpg" alt="Locked Zone 2 gate" loading="lazy"><figcaption>Locked Zone 2 gate with unlock price</figcaption></figure>
+    <figure><img src="rbx-map-6.jpg" alt="Waterfall feeding the stream" loading="lazy"><figcaption>Waterfall feeding the stream from the cliff</figcaption></figure>
   </div>
 </section>
 
