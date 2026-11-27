@@ -4,137 +4,205 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gabriel | Roblox Developer</title>
-<meta name="description" content="Roblox developer portfolio: scripting, systems, UI, VFX, building and UGC.">
+<meta name="description" content="Roblox developer portfolio: maps and level design, combat systems, VFX, UI and UGC.">
+<meta property="og:title" content="Gabriel | Roblox Developer">
+<meta property="og:image" content="https://uprodigy.github.io/rbx-ymap-lake.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0e1117;--card:#161b24;--ink:#eef1f6;--soft:#9aa3b2;--line:#252c38;--accent:#5fb3ff;--accent2:#ffb648}
+:root{--bg:#0b0e14;--bg2:#0f141c;--card:#141a24;--card2:#18202c;--ink:#eef2f8;--soft:#9ba5b6;--line:#232b38;--accent:#6cc4ff;--accent2:#ffb954;--glow:rgba(108,196,255,.18)}
 *{box-sizing:border-box;margin:0}
-body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-header{padding:72px 0 40px}
-.tag{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(38px,7vw,64px);line-height:1.05;margin:10px 0 16px}
-.lead{font-size:clamp(17px,2.3vw,20px);color:var(--soft);max-width:700px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.chip{border:1px solid var(--line);background:var(--card);padding:6px 13px;border-radius:999px;font-size:14px}
-.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid var(--accent);color:var(--accent)}
-.btn.main{background:var(--accent);color:#06121f}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
-.fact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
-.fact b{display:block;font-family:"Space Grotesk",sans-serif;font-size:22px;color:var(--accent2)}
-.fact span{font-size:14px;color:var(--soft)}
-section{padding:44px 0;border-top:1px solid var(--line)}
-h2{font-family:"Space Grotesk",sans-serif;font-size:30px;line-height:1.15}
-.sub{color:var(--accent2);font-weight:600;font-size:14px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
-.desc{color:var(--soft);max-width:760px;margin:12px 0 18px}
-ul.built{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px;margin-bottom:24px;max-width:880px}
-ul.built li{padding-left:18px;position:relative;font-size:15px}
-ul.built li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:2px;background:var(--accent)}
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.icons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
-.icons img{width:100%;border-radius:10px;display:block}
-.gallery figure{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;cursor:zoom-in;transition:transform .25s}
-.gallery figure:hover img{transform:scale(1.03)}
-.gallery figcaption{padding:10px 12px;font-size:13.5px;color:var(--soft)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
-.card .k{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent2)}
-.card h3{font-size:18px;margin:4px 0 8px}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(11,14,20,.78);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
+nav .wrap{display:flex;align-items:center;gap:22px;height:58px}
+nav .logo{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:18px;text-decoration:none;margin-right:auto}
+nav .logo span{color:var(--accent)}
+nav a.l{text-decoration:none;color:var(--soft);font-size:14.5px;font-weight:500}
+nav a.l:hover{color:var(--ink)}
+nav .cta{padding:8px 14px;border-radius:9px;background:var(--accent);color:#04121f;text-decoration:none;font-weight:600;font-size:14px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .bg{position:absolute;inset:0;background:url(rbx-ymap-lake.jpg) center 40%/cover;transform:scale(1.04);filter:saturate(1.1)}
+.hero .bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,14,20,.96) 0%,rgba(11,14,20,.86) 42%,rgba(11,14,20,.35) 100%),linear-gradient(0deg,var(--bg) 0%,rgba(11,14,20,0) 40%)}
+.hero .wrap{position:relative;padding:96px 20px 64px}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--glow);border:1px solid rgba(108,196,255,.3);padding:6px 12px;border-radius:999px}
+.tag i{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80}
+h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(42px,7.5vw,76px);line-height:1.02;margin:18px 0 16px;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),#b3e1ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,2.2vw,20px);color:#c3cbd8;max-width:620px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;max-width:700px}
+.chip{border:1px solid rgba(255,255,255,.12);background:rgba(20,26,36,.7);padding:6px 13px;border-radius:999px;font-size:13.5px;color:#d5dbe5}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:11px;font-weight:600;text-decoration:none;border:1px solid rgba(108,196,255,.6);color:var(--accent);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.main{background:var(--accent);color:#04121f;box-shadow:0 8px 30px rgba(108,196,255,.25)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px}
+.fact{background:rgba(20,26,36,.75);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px 18px;backdrop-filter:blur(6px)}
+.fact b{display:block;font-family:"Space Grotesk",sans-serif;font-size:24px;color:var(--accent2)}
+.fact span{font-size:13.5px;color:var(--soft)}
+
+/* sections */
+section{padding:72px 0 8px}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.num{font-family:"Space Grotesk",sans-serif;color:var(--accent2);font-weight:700;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,4vw,40px);line-height:1.1;margin-top:6px;letter-spacing:-.01em}
+.desc{color:var(--soft);max-width:720px;margin-top:10px}
+ul.built{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 28px;margin:18px 0 26px;max-width:900px}
+ul.built li{padding-left:20px;position:relative;font-size:15px;color:#d3d9e3}
+ul.built li:before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:2px;background:var(--accent);box-shadow:0 0 10px var(--glow)}
+
+/* tiles */
+.tile{position:relative;overflow:hidden;border-radius:16px;background:var(--card);border:1px solid var(--line);cursor:zoom-in}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;font-size:13.5px;color:#e6ebf2;background:linear-gradient(0deg,rgba(6,8,12,.88),rgba(6,8,12,0))}
+.tile figcaption b{display:block;font-family:"Space Grotesk",sans-serif;font-size:16px;color:#fff}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:12px}
+.bento .w2{grid-column:span 2}.bento .h2{grid-row:span 2}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.strip .tile{aspect-ratio:16/7}
+.label{display:inline-block;margin:26px 0 10px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.grid4 .tile{aspect-ratio:16/10}
+.grid4 .wide{grid-column:span 2;aspect-ratio:auto}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.grid3 .tile{aspect-ratio:16/11}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:16px;padding:22px}
+.card .k{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--accent2)}
+.card h3{font-size:19px;margin:4px 0 8px;font-family:"Space Grotesk",sans-serif}
 .card p{color:var(--soft);font-size:15px}
 .card ul{margin:10px 0 0;padding-left:18px;color:var(--soft);font-size:14.5px}
-.ugcs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
-.ugc{background:radial-gradient(circle at 50% 40%,#232b3a,#141922);border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;color:var(--soft);font-size:13.5px;text-align:center;transition:border-color .2s}
-.ugc:hover{border-color:var(--accent)}
-.ugc img{width:100%;aspect-ratio:1;object-fit:contain;display:block;margin-bottom:8px}
-.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
-.step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
-.step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--accent);color:#06121f;font-weight:700;margin-bottom:8px}
+.icons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.icons img{width:100%;border-radius:10px}
+
+/* ugc */
+.ugcs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ugc{background:radial-gradient(circle at 50% 38%,#26303f,#121722 70%);border:1px solid var(--line);border-radius:16px;padding:16px;text-decoration:none;color:var(--soft);font-size:13.5px;text-align:center;transition:border-color .2s,transform .2s}
+.ugc:hover{border-color:var(--accent);transform:translateY(-3px)}
+.ugc img{width:100%;aspect-ratio:1;object-fit:contain;margin-bottom:8px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45))}
+
+/* steps + footer */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--accent);color:#04121f;font-weight:700;margin-bottom:10px}
 .step p{color:var(--soft);font-size:14.5px}
-footer{padding:44px 0 70px;border-top:1px solid var(--line)}
-#lb{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;padding:20px;z-index:9}
-#lb img{max-width:100%;max-height:100%;border-radius:8px}
-.gallery.g3{grid-template-columns:repeat(3,1fr)}
-.gallery.g3 img{aspect-ratio:6/5}
-@media (max-width:860px){.facts,.steps,.gallery,.gallery.g3,.ugcs{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:760px){.gallery,.gallery.g3,.cards{grid-template-columns:1fr}ul.built{grid-template-columns:1fr}header{padding:48px 0 28px}}
-.gallery figure.big{grid-column:span 2}
-.gallery figure.big img{aspect-ratio:3.25/1;object-position:50% 30%}
-@media (max-width:760px){.gallery figure.big{grid-column:auto}}
+.step b{color:var(--ink)}
+footer{margin-top:72px;padding:56px 0 80px;border-top:1px solid var(--line);background:radial-gradient(ellipse at 50% 0%,rgba(108,196,255,.08),transparent 60%)}
+footer .wrap{text-align:center}
+footer .desc{margin:12px auto 0}
+footer .btns{justify-content:center}
+
+#lb{position:fixed;inset:0;background:rgba(3,5,8,.94);display:none;align-items:center;justify-content:center;padding:24px;z-index:50;cursor:zoom-out}
+#lb img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+
+@media (max-width:900px){.bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}.facts,.steps,.ugcs,.grid4{grid-template-columns:repeat(2,1fr)}.cards,.grid3{grid-template-columns:1fr 1fr}nav a.l{display:none}}
+@media (max-width:640px){.bento{grid-template-columns:1fr;grid-auto-rows:200px}.bento .w2,.bento .h2{grid-column:auto;grid-row:auto}.strip,.grid3,.cards{grid-template-columns:1fr}.grid4 .wide{grid-column:auto;aspect-ratio:16/10}ul.built{grid-template-columns:1fr}.hero .wrap{padding:64px 16px 44px}.wrap{padding:0 16px}}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header>
-  <div class="tag">Roblox Developer · Scripter · Builder</div>
-  <h1>Gabriel</h1>
-  <p class="lead">I build Roblox games end to end: combat and game systems in Luau, UI, VFX, maps and UGC accessories. Clear scope, fixed price, and everything tested in Play before delivery.</p>
-  <div class="chips">
-    <span class="chip">Luau scripting</span><span class="chip">Combat systems</span><span class="chip">DataStores</span><span class="chip">UI / HUD</span><span class="chip">VFX</span><span class="chip">Terrain &amp; maps</span><span class="chip">Blender</span><span class="chip">UGC fitting</span><span class="chip">Monetization</span><span class="chip">Mobile &amp; gamepad</span>
-  </div>
-  <div class="btns">
-    <a class="btn main" href="#contact">Hire me</a>
-    <a class="btn" href="#work">See my work</a>
-  </div>
-  <div class="facts">
-    <div class="fact"><b>2</b><span>original games in development</span></div>
-    <div class="fact"><b>Full loop</b><span>from title screen to boss and back</span></div>
-    <div class="fact"><b>UGC</b><span>accessories published to the Marketplace</span></div>
-    <div class="fact"><b>Fast</b><span>small tasks delivered in 1–3 days</span></div>
+<nav><div class="wrap">
+  <a class="logo" href="#top">Gabriel<span>.</span></a>
+  <a class="l" href="#maps">Maps</a><a class="l" href="#combat">Combat &amp; VFX</a><a class="l" href="#more">Projects</a><a class="l" href="#ugc">UGC</a>
+  <a class="cta" href="#contact">Hire me</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="bg"></div>
+  <div class="wrap">
+    <span class="tag"><i></i>Available for commissions</span>
+    <h1>Roblox <em>maps</em>,<br>systems &amp; VFX</h1>
+    <p class="lead">I build Roblox games end to end: hand-crafted maps and arenas, combat and game systems in Luau, UI, VFX and UGC accessories. Clear scope, fixed price, everything tested in Play before delivery.</p>
+    <div class="chips">
+      <span class="chip">Map &amp; level design</span><span class="chip">Terrain &amp; environments</span><span class="chip">Luau scripting</span><span class="chip">Combat systems</span><span class="chip">VFX</span><span class="chip">UI / HUD</span><span class="chip">Blender</span><span class="chip">UGC</span><span class="chip">Mobile &amp; gamepad</span>
+    </div>
+    <div class="btns">
+      <a class="btn main" href="#contact">Hire me</a>
+      <a class="btn" href="#maps">See my maps</a>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>10+</b><span>combat arenas and rooms built</span></div>
+      <div class="fact"><b>Full loop</b><span>from title screen to boss and back</span></div>
+      <div class="fact"><b>400+</b><span>favorites on my top UGC item</span></div>
+      <div class="fact"><b>1–3 days</b><span>for small tasks</span></div>
+    </div>
   </div>
 </header>
 
-<section id="work">
-  <div class="sub">Original game · Isometric action roguelite</div>
-  <h2>Yggdrasil</h2>
-  <p class="desc">A Norse action roguelite with a complete run loop: title screen, hub, procedurally assembled rooms, a frost-giant boss, then victory or death and back to the hub. (Interface shown in Portuguese.)</p>
+<main class="wrap">
+
+<section id="maps">
+  <div class="head"><div>
+    <div class="num">01 · Map &amp; level design</div>
+    <h2>Yggdrasil arenas</h2>
+    <p class="desc">Every room of my Norse roguelite is built by hand for combat: readable layouts from an isometric camera, layered cliffs that frame the play space, hazards and portals placed for flow, and a distinct look per biome (courtyard, frozen lake, roots, snowfield, throne).</p>
+  </div></div>
+  <div class="bento">
+    <figure class="tile w2 h2"><img src="rbx-ymap-lake.jpg" alt="Frozen lake arena with ice crystals" loading="lazy"><figcaption><b>Frozen lake</b>Ice floor with crystal decals, breathing holes and portal exits</figcaption></figure>
+    <figure class="tile w2"><img src="rbx-ymap-patio.jpg" alt="Rune circle courtyard" loading="lazy"><figcaption><b>Rune courtyard</b>Carved stone circle, braziers and two-tier walls</figcaption></figure>
+    <figure class="tile"><img src="rbx-ymap-roots.jpg" alt="Roots room" loading="lazy"><figcaption><b>Roots</b>Night biome with raised pits</figcaption></figure>
+    <figure class="tile"><img src="rbx-ymap-boss.jpg" alt="Boss arena" loading="lazy"><figcaption><b>Boss arena</b>Frost-giant fight</figcaption></figure>
+    <figure class="tile w2"><img src="rbx-ymap-cliffs.jpg" alt="Snowfield with cliffs" loading="lazy"><figcaption><b>Snowfield</b>Paths, ruins and cliff ledges around the fight</figcaption></figure>
+    <figure class="tile"><img src="rbx-ymap-field.jpg" alt="Snowfield ruins" loading="lazy"><figcaption><b>Ruins</b>Stone props and footpaths</figcaption></figure>
+    <figure class="tile"><img src="rbx-ymap-portals.jpg" alt="Portal room" loading="lazy"><figcaption><b>Portal room</b>Exits to the next rooms</figcaption></figure>
+  </div>
+  <div class="label">Full layouts, top-down</div>
+  <div class="strip">
+    <figure class="tile"><img src="rbx-ymap-top-patio.jpg" alt="Courtyard layout" loading="lazy"><figcaption><b>Courtyard</b></figcaption></figure>
+    <figure class="tile"><img src="rbx-ymap-top-lake.jpg" alt="Lake layout" loading="lazy"><figcaption><b>Frozen lake</b></figcaption></figure>
+    <figure class="tile"><img src="rbx-ymap-top-throne.jpg" alt="Throne layout" loading="lazy"><figcaption><b>Throne room</b></figcaption></figure>
+  </div>
+</section>
+
+<section id="combat">
+  <div class="head"><div>
+    <div class="num">02 · Original game</div>
+    <h2>Yggdrasil: combat, VFX &amp; UI</h2>
+    <p class="desc">A Norse action roguelite with a complete run loop: title screen, hub, procedurally assembled rooms, a frost-giant boss, then victory or death and back to the hub. (Interface shown in Portuguese.)</p>
+  </div></div>
   <ul class="built">
-    <li>Combat: several weapons with light and special attacks, dodge, elites and enemy waves</li>
+    <li>Several weapons with light and special attacks, dodge, elites and enemy waves</li>
     <li>Blessing system with rune upgrades, rarity tiers and dual blessings</li>
     <li>Frost-giant boss fight with a custom boss health bar</li>
     <li>Meta-progression between runs (unlockable weapons)</li>
     <li>Custom HUD, menus and cinematic intro, boss, death and victory scenes</li>
     <li>Mobile and gamepad controls</li>
   </ul>
-  <div class="gallery">
-    <figure class="big"><img src="rbx-ygg-7.jpg" alt="Boss fight against a frost giant" loading="lazy"><figcaption>Boss fight with custom boss health bar</figcaption></figure>
-    <figure><img src="rbx-ygg-2.jpg" alt="Courtyard arena" loading="lazy"><figcaption>Courtyard arena with runic stone circle</figcaption></figure>
-    <figure><img src="rbx-ygg-3.jpg" alt="Frozen lake room" loading="lazy"><figcaption>Frozen lake room with portal and ice hazards</figcaption></figure>
-    <figure><img src="rbx-ygg-5.jpg" alt="Spear spin attack" loading="lazy"><figcaption>Spear spin attack with radial VFX</figcaption></figure>
-    <figure><img src="rbx-ygg-6.jpg" alt="Hammer leap slam" loading="lazy"><figcaption>Hammer leap slam cracking the ground</figcaption></figure>
-    <figure><img src="rbx-ygg-4.jpg" alt="God power activation" loading="lazy"><figcaption>God-power activation slicing across a room</figcaption></figure>
-    <figure><img src="rbx-ygg-8.jpg" alt="Blessing selection cards" loading="lazy"><figcaption>Blessing choice UI: rune cards with rarity tiers</figcaption></figure>
+  <div class="bento">
+    <figure class="tile w2 h2"><img src="rbx-ygg-7.jpg" alt="Boss fight against a frost giant" loading="lazy"><figcaption><b>Boss fight</b>Custom boss health bar and impact VFX</figcaption></figure>
+    <figure class="tile"><img src="rbx-ygg-5.jpg" alt="Spear spin attack" loading="lazy"><figcaption><b>Spear spin</b>Radial VFX</figcaption></figure>
+    <figure class="tile"><img src="rbx-ygg-6.jpg" alt="Hammer leap slam" loading="lazy"><figcaption><b>Hammer slam</b>Ground crack</figcaption></figure>
+    <figure class="tile w2"><img src="rbx-ygg-8.jpg" alt="Blessing selection cards" loading="lazy"><figcaption><b>Blessing UI</b>Rune cards with rarity tiers</figcaption></figure>
   </div>
 </section>
 
-<section id="map">
-  <div class="sub">Map building · Pet Simulator style</div>
-  <h2>Crystal Meadow zone</h2>
-  <p class="desc">A sample simulator zone I built as a layout reference: a closed meadow ringed by two-tier cliffs, a curved path from the entrance to a locked Zone 2 gate, open fields for breakables and an egg station you can see from the entrance.</p>
-  <ul class="built">
-    <li>170 × 230 stud playable area, entrance courtyard and exit corridor</li>
-    <li>26 breakables in 6 fields, kept clear of the path and the water</li>
-    <li>Egg station on a raised platform with stairs, lanterns and price label</li>
-    <li>Locked Zone 2 gate with barrier and unlock price, ready for a purchase script</li>
-    <li>VFX: layered waterfall with mist and rainbow, pollen, stream glints, coin sparkles, snow drifting from the Zone 2 gate</li>
-    <li>70 reused meshes, no unions, free assets scanned for backdoors</li>
-    <li>Scripted placement check: nothing floating, buried, overlapping or on the path</li>
-  </ul>
-  <div class="gallery g3">
-    <figure><img src="rbx-map-1.jpg" alt="Aerial view of the Crystal Meadow zone" loading="lazy"><figcaption>Full zone, entrance at the bottom, Zone 2 gate at the top</figcaption></figure>
-    <figure><img src="rbx-map-2.jpg" alt="View from the entrance gate down the curved path" loading="lazy"><figcaption>Entrance: path, egg and crystal landmark in one view</figcaption></figure>
-    <figure><img src="rbx-map-3.jpg" alt="Wooden bridge over the stream" loading="lazy"><figcaption>Stream and bridge, waterfall and rainbow in the back</figcaption></figure>
-    <figure><img src="rbx-map-4.jpg" alt="Egg on a raised platform" loading="lazy"><figcaption>Egg station on a raised platform</figcaption></figure>
-    <figure><img src="rbx-map-5.jpg" alt="Locked Zone 2 gate" loading="lazy"><figcaption>Locked Zone 2 gate, snow drifting in from the next zone</figcaption></figure>
-    <figure><img src="rbx-map-6.jpg" alt="Waterfall with mist and a rainbow feeding the stream" loading="lazy"><figcaption>Waterfall VFX: flowing beams, foam, mist and rainbow</figcaption></figure>
+<section id="sim">
+  <div class="head"><div>
+    <div class="num">03 · Simulator zone</div>
+    <h2>Crystal Meadow</h2>
+    <p class="desc">A pet-simulator style zone: a closed meadow ringed by two-tier cliffs, a curved path from the entrance to a locked Zone 2 gate, fields for breakables and an egg station visible from the entrance. Layout scripted-checked so nothing floats, overlaps or blocks the path.</p>
+  </div></div>
+  <div class="grid3">
+    <figure class="tile"><img src="rbx-map-1.jpg" alt="Aerial view of the Crystal Meadow zone" loading="lazy"><figcaption><b>Full zone</b>Entrance to Zone 2 gate</figcaption></figure>
+    <figure class="tile"><img src="rbx-map-3.jpg" alt="Wooden bridge over the stream" loading="lazy"><figcaption><b>Stream and bridge</b>Waterfall and rainbow behind</figcaption></figure>
+    <figure class="tile"><img src="rbx-map-6.jpg" alt="Waterfall with mist and a rainbow" loading="lazy"><figcaption><b>Waterfall VFX</b>Beams, foam, mist</figcaption></figure>
   </div>
 </section>
 
-<section>
-  <div class="sub">More projects</div>
-  <h2>Systems, simulators &amp; UGC</h2>
+<section id="more">
+  <div class="head"><div>
+    <div class="num">04 · More projects</div>
+    <h2>Systems, simulators &amp; UGC</h2>
+  </div></div>
   <div class="cards">
     <div class="card"><div class="k">Original game · Co-op strategy</div><h3>Stop the Lava!</h3><p>Dig channels and raise walls on deformable terrain to steer an erupting volcano's lava away from a village.</p>
       <ul><li>Height-map terrain written to Terrain voxels in real time</li><li>Grid-based lava flow simulation</li><li>Waves, new islands, tools, talents and rebirth</li><li>DataStore saves, quests and a game-pass shop</li></ul>
@@ -147,9 +215,11 @@ footer{padding:44px 0 70px;border-top:1px solid var(--line)}
 </section>
 
 <section id="ugc">
-  <div class="sub">Published on the Marketplace</div>
-  <h2>UGC accessories</h2>
-  <p class="desc">A selection of the most-favorited items I modeled, fitted and published under my group's store. Click any item to see it on Roblox.</p>
+  <div class="head"><div>
+    <div class="num">05 · Published on the Marketplace</div>
+    <h2>UGC accessories</h2>
+    <p class="desc">The most-favorited items I modeled, fitted and published under my group's store. Click any item to see it on Roblox.</p>
+  </div></div>
   <div class="ugcs">
     <a class="ugc" href="https://www.roblox.com/catalog/135209200345716" target="_blank" rel="noopener"><img src="rbx-ugc-1.png" alt="Liebe Black Clover" loading="lazy"><span>Liebe Black Clover</span></a>
     <a class="ugc" href="https://www.roblox.com/catalog/124017592141446" target="_blank" rel="noopener"><img src="rbx-ugc-2.png" alt="Hedwig Harry Potter Owl" loading="lazy"><span>Hedwig Harry Potter Owl</span></a>
@@ -163,8 +233,10 @@ footer{padding:44px 0 70px;border-top:1px solid var(--line)}
 </section>
 
 <section>
-  <div class="sub">How I work</div>
-  <h2>Simple and paid per milestone</h2>
+  <div class="head"><div>
+    <div class="num">06 · How I work</div>
+    <h2>Simple and paid per milestone</h2>
+  </div></div>
   <div class="steps">
     <div class="step"><p><b>Brief.</b> You send the task and references.</p></div>
     <div class="step"><p><b>Quote.</b> Fixed price and delivery date, split into milestones.</p></div>
@@ -172,16 +244,19 @@ footer{padding:44px 0 70px;border-top:1px solid var(--line)}
     <div class="step"><p><b>Deliver.</b> Clean .rbxl / model file, plus one round of fixes.</p></div>
   </div>
 </section>
+</main>
 
-<footer id="contact">
-  <h2>Let's work together</h2>
-  <p class="desc">Scripted systems (shops, inventories, DataStores, combat), UI implementation, bug fixes, maps and props, UGC items. Send me your task and I'll reply with a fixed price and a delivery date.</p>
+<footer id="contact"><div class="wrap">
+  <div class="num">Let's work together</div>
+  <h2>Got a map, system or asset in mind?</h2>
+  <p class="desc">Maps and arenas, scripted systems (shops, inventories, DataStores, combat), UI, VFX, props and UGC items. Send me your task and I'll reply with a fixed price and a delivery date.</p>
   <div class="btns"><span class="btn main">Discord: uDarkdev_</span><a class="btn" href="https://github.com/uProdigy" target="_blank" rel="noopener">GitHub</a></div>
-</footer>
-</div>
+</div></footer>
+
 <div id="lb" onclick="this.style.display='none'"><img alt=""></div>
 <script>
-document.querySelectorAll('.gallery img').forEach(i=>i.addEventListener('click',()=>{const lb=document.getElementById('lb');lb.querySelector('img').src=i.src;lb.style.display='flex'}));
+document.querySelectorAll('.tile img').forEach(i=>i.parentElement.addEventListener('click',()=>{const lb=document.getElementById('lb');lb.querySelector('img').src=i.src;lb.style.display='flex'}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lb').style.display='none'});
 </script>
 </body>
 </html>
