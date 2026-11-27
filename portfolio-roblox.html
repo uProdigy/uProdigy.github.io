@@ -60,6 +60,9 @@ footer{padding:44px 0 70px;border-top:1px solid var(--line)}
 .gallery.g3 img{aspect-ratio:6/5}
 @media (max-width:860px){.facts,.steps,.gallery,.gallery.g3,.ugcs{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:760px){.gallery,.gallery.g3,.cards{grid-template-columns:1fr}ul.built{grid-template-columns:1fr}header{padding:48px 0 28px}}
+.gallery figure.big{grid-column:span 2}
+.gallery figure.big img{aspect-ratio:3.25/1;object-position:50% 30%}
+@media (max-width:760px){.gallery figure.big{grid-column:auto}}
 </style>
 </head>
 <body>
@@ -96,14 +99,13 @@ footer{padding:44px 0 70px;border-top:1px solid var(--line)}
     <li>Mobile and gamepad controls</li>
   </ul>
   <div class="gallery">
-    <figure><img src="rbx-ygg-7.jpg" alt="Boss fight against a frost giant" loading="lazy"><figcaption>Boss fight with custom boss health bar</figcaption></figure>
-    <figure><img src="rbx-ygg-5.jpg" alt="Spear spin attack" loading="lazy"><figcaption>Spear spin attack with radial VFX</figcaption></figure>
-    <figure><img src="rbx-ygg-8.jpg" alt="Blessing selection cards" loading="lazy"><figcaption>Blessing choice UI: rune cards with rarity tiers</figcaption></figure>
-    <figure><img src="rbx-ygg-6.jpg" alt="Hammer leap slam" loading="lazy"><figcaption>Hammer leap slam cracking the ground</figcaption></figure>
-    <figure><img src="rbx-ygg-4.jpg" alt="God power activation" loading="lazy"><figcaption>God-power activation slicing across a room</figcaption></figure>
-    <figure><img src="rbx-ygg-1.jpg" alt="Norse longhouse hub" loading="lazy"><figcaption>Hub longhouse with interactive stations</figcaption></figure>
+    <figure class="big"><img src="rbx-ygg-7.jpg" alt="Boss fight against a frost giant" loading="lazy"><figcaption>Boss fight with custom boss health bar</figcaption></figure>
     <figure><img src="rbx-ygg-2.jpg" alt="Courtyard arena" loading="lazy"><figcaption>Courtyard arena with runic stone circle</figcaption></figure>
     <figure><img src="rbx-ygg-3.jpg" alt="Frozen lake room" loading="lazy"><figcaption>Frozen lake room with portal and ice hazards</figcaption></figure>
+    <figure><img src="rbx-ygg-5.jpg" alt="Spear spin attack" loading="lazy"><figcaption>Spear spin attack with radial VFX</figcaption></figure>
+    <figure><img src="rbx-ygg-6.jpg" alt="Hammer leap slam" loading="lazy"><figcaption>Hammer leap slam cracking the ground</figcaption></figure>
+    <figure><img src="rbx-ygg-4.jpg" alt="God power activation" loading="lazy"><figcaption>God-power activation slicing across a room</figcaption></figure>
+    <figure><img src="rbx-ygg-8.jpg" alt="Blessing selection cards" loading="lazy"><figcaption>Blessing choice UI: rune cards with rarity tiers</figcaption></figure>
   </div>
 </section>
 
